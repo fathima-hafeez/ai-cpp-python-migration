@@ -1,0 +1,86 @@
+
+CTP Migration Report
+====================
+
+C++ Files
+---------
+Account.cpp
+Account.h
+BankSystem.cpp
+main.cpp
+
+Python Files
+------------
+account.py
+bank_system.py
+main.py
+
+Code Migration Comparison
+=========================
+
+
+C++ File: Account.cpp
+----------------
+
+C++ Code
+--------
+#include "Account.h"
+
+Python Code
+-----------
+class Account:
+    def __init__(self, i, b):
+        self.id = i
+        self.balance = b
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def get_balance(self):
+        return self.balance
+
+
+
+C++ File: main.cpp
+----------------
+
+C++ Code
+--------
+#include <iostream>
+#include "Account.h"
+
+using namespace std;
+
+int main(){
+
+    Account acc1(1,1000);
+
+    acc1.deposit(200);
+
+    cout << "Final Balance: " << acc1.getBalance() << endl;
+
+    return 0;
+}
+
+Python Code
+-----------
+from account import Account
+
+def main():
+    acc1 = Account(1, 1000)
+    acc1.deposit(200)
+    print("Final Balance:", acc1.get_balance())
+
+if __name__ == "__main__":
+    main()
+
+
+
+Migration Metrics
+-----------------
+
+Claude API Calls: 1
+Input Tokens: 433
+Output Tokens: 190
+Average Latency: 5.02 seconds
+Total Migration Time: 5.02 seconds
