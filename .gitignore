@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+uploaded_repo/
+repo.zip
+converted_code.py
+cpp_demo_repo.zip
